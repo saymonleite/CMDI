@@ -1,5 +1,5 @@
 // Cole aqui a URL do seu Web App do Google copiada no Passo 2
-const GAS_API_URL = "https://script.google.com/macros/s/AKfycbwgVAW32cPo3soBB6kDRsjNMRdf8vdt7lBny20lNfKY1J2RuR99-vXvrzcNmwPGXGnv/exec";
+const GAS_API_URL = "https://script.google.com/macros/s/AKfycbyVO3yQ0OEtHcu3ysCeQIyQKDvqY7iVCijSnkc3S5Y/dev";
 
 // =========================================================================
 // O RESTANTE DO SCRIPT ABAIXO NÃO PRECISA SER ALTERADO
@@ -191,4 +191,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
 });
+
 
