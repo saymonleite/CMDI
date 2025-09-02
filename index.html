@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFAM - Pesquisa de Opinião GTs</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="app-header">
+        <img src="https://i.postimg.cc/FFWPnMtP/logo-cmdi-removebg-preview.png" alt="Logo IFAM CMDI">
+        <h1>Pesquisa de Opinião – Grupos de Trabalho por Área de Conhecimento</h1>
+        <p>Portaria nº 289/2025 – CMDI | Reunião de 15 de agosto de 2025</p>
+    </header>
+
+    <main id="app-container">
+        <!-- ETAPA 1: SELEÇÃO DO GRUPO DE TRABALHO -->
+        <div id="step-group-selection" class="step-card">
+            <div class="portaria-link-box">
+                <p>
+                    Para continuar, primeiro identifique a qual Grupo de Trabalho (GT) você pertence.
+                    <strong>Consulte a portaria oficial no botão abaixo.</strong>
+                </p>
+                <a href="https://drive.google.com/file/d/1EArqOYUerUOU-HlmTk6kBALZ-8FBNmq0/view?usp=drive_link" 
+                   target="_blank" rel="noopener noreferrer" class="portaria-button">
+                   📄 Abrir Portaria nº 289/2025 (PDF)
+                </a>
+            </div>
+            <h2>1. Identificação</h2>
+            <p>Selecione o seu Grupo de Trabalho (GT) conforme a Portaria nº 289/2025.</p>
+            <select id="group-select">
+                <option value="" disabled selected>Carregando grupos...</option>
+            </select>
+        </div>
+
+        <!-- ETAPA 2: CONFIRMAÇÃO DOS MEMBROS -->
+        <div id="step-confirmation" class="step-card" style="display: none;">
+            <h2>Confirme sua Participação</h2>
+            <p>Os seguintes membros fazem parte do grupo <strong><span id="selected-group-name"></span></strong>. Verifique se seu nome está na lista antes de prosseguir.</p>
+            <ul id="member-list"></ul>
+            <div class="button-group">
+                <button id="back-to-selection-button" class="secondary">Voltar</button>
+                <button id="confirm-button" class="primary">Confirmar e Prosseguir</button>
+            </div>
+        </div>
+
+        <!-- ETAPA 3: QUESTIONÁRIO -->
+        <div id="step-questions" class="step-card" style="display: none;">
+            <h2>2. Avaliação das Ações Propostas</h2>
+            <p>Para cada item, assinale se concorda ou não e, se desejar, registre sugestões ou observações.</p>
+            
+            <form id="questions-form">
+                <!-- Pergunta 1 -->
+                <div class="question-block">
+                    <h3>Pergunta 1 – Planejamento Estratégico</h3>
+                    <p class="question-text">Mapear e planejar a sucessão de servidores na área, considerando aposentadorias e afastamentos de longo prazo, bem como propor planos de capacitação e qualificação para os membros.</p>
+                    <div class="radio-group">
+                        <label><input type="radio" name="q1" value="Concordo" required> Concordo</label>
+                        <label><input type="radio" name="q1" value="Não concordo"> Não concordo</label>
+                    </div>
+                    <textarea name="c1" rows="3" placeholder="Comentários / Ideias (opcional)"></textarea>
+                </div>
+                
+                <!-- Pergunta 2 -->
+                <div class="question-block">
+                    <h3>Pergunta 2 – Desenvolvimento de Material Didático</h3>
+                    <p class="question-text">Elaborar e padronizar materiais didáticos (apostilas, guias de estudo, roteiros de aula e de laboratório) para as disciplinas da área, visando a qualidade e a uniformidade do ensino.</p>
+                    <div class="radio-group">
+                        <label><input type="radio" name="q2" value="Concordo" required> Concordo</label>
+                        <label><input type="radio" name="q2" value="Não concordo"> Não concordo</label>
+                    </div>
+                    <textarea name="c2" rows="3" placeholder="Comentários / Ideias (opcional)"></textarea>
+                </div>
+
+                <!-- Pergunta 3 -->
+                <div class="question-block">
+                    <h3>Pergunta 3 – Modernização da Infraestrutura</h3>
+                    <p class="question-text">Realizar o levantamento de necessidades e propor melhorias para a modernização de laboratórios, salas de aula e outros espaços de ensino vinculados à sua área de atuação.</p>
+                    <div class="radio-group">
+                        <label><input type="radio" name="q3" value="Concordo" required> Concordo</label>
+                        <label><input type="radio" name="q3" value="Não concordo"> Não concordo</label>
+                    </div>
+                    <textarea name="c3" rows="3" placeholder="Comentários / Ideias (opcional)"></textarea>
+                </div>
+
+                <!-- Pergunta 4 -->
+                <div class="question-block">
+                    <h3>Pergunta 4 – Otimização de Atividades Docentes</h3>
+                    <p class="question-text">Desenvolver critérios transparentes e isonômicos para a distribuição de carga horária, abrangendo atividades de ensino, pesquisa, extensão e gestão, além de organizar a alocação de orientações de projetos (TCC, PIBIC, extensão, etc.).</p>
+                    <div class="radio-group">
+                        <label><input type="radio" name="q4" value="Concordo" required> Concordo</label>
+                        <label><input type="radio" name="q4" value="Não concordo"> Não concordo</label>
+                    </div>
+                    <textarea name="c4" rows="3" placeholder="Comentários / Ideias (opcional)"></textarea>
+                </div>
+
+                <!-- Pergunta 5 -->
+                <div class="question-block">
+                    <h3>Pergunta 5 – Participação Institucional</h3>
+                    <p class="question-text">Identificar e preparar servidores para uma participação ativa em comissões, Núcleo Docente Estruturante (NDE), Colegiados de Curso e na Comissão Permanente de Pessoal Docente (CPPD).</p>
+                    <div class="radio-group">
+                        <label><input type="radio" name="q5" value="Concordo" required> Concordo</label>
+                        <label><input type="radio" name="q5" value="Não concordo"> Não concordo</label>
+                    </div>
+                    <textarea name="c5" rows="3" placeholder="Comentários / Ideias (opcional)"></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" id="back-to-confirm-button" class="secondary">Voltar</button>
+                    <button type="submit" id="submit-button" class="primary">Enviar Respostas</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Mensagem de Sucesso -->
+        <div id="success-message" class="step-card" style="display: none;">
+            <h2>✅ Sucesso!</h2>
+            <p>Sua contribuição foi registrada com sucesso. Agradecemos sua participação!</p>
+        </div>
+    </main>
+    
+    <div id="loader" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
